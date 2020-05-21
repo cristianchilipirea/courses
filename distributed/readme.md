@@ -1,1 +1,1 @@
-start
+[[lab01]](labs/lab01/readme.md)
