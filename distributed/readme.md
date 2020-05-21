@@ -1,5 +1,5 @@
 * [lab01](labs/lab01/readme.md)
-* [lab02 - why we need docker - sucky dependencies](labs/lab02/readme.md) <<
+* [lab02 - why we need docker - sucky dependencies + cloud?](labs/lab02/readme.md) <<
 * [lab03 - docker tutorial ](labs/lab03/readme.md)
 * [lab04 - caching](labs/lab04/readme.md)
 * [lab05 - load balancer](labs/lab05/readme.md)
