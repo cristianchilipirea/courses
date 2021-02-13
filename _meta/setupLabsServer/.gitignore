@@ -1,0 +1,2 @@
+*.csv
+!example.csv

@@ -1,0 +1,6 @@
+Drepturi sudo prin WinScp
+	Advanced->Environment->sftp 
+	la SFTP Server se adauga sudo su -c /usr/lib/sftp-server
+
+Pentru sudo:
+	usermod -aG sudo username
