@@ -4,3 +4,7 @@ Drepturi sudo prin WinScp
 
 Pentru sudo:
 	usermod -aG sudo username
+
+	visudo
+	In the Sudoers file add NOPASSWD to this line:
+	%sudo   ALL=(ALL:ALL) NOPASSWD:ALL
