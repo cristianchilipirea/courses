@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "/usr/bin/mpirun",
-            "args": ["-n", "2", "${fileDirname}/${fileBasenameNoExtension}"], // The secound parameter is the number of processes
+            "args": ["-n", "2", "${fileDirname}/${fileBasenameNoExtension}", "10", "1"], // The secound parameter is the number of processes
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
