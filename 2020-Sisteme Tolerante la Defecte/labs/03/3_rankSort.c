@@ -34,7 +34,7 @@ void displayVector(int *v)
 {
 	// DO NOT MODIFY
 	int i;
-	int displayWidth = 2 + log10(v[N - 1]);
+	int displayWidth = 2 + log10(N);
 	for (i = 0; i < N; i++) {
 		printf("%*i", displayWidth, v[i]);
 	}
@@ -85,7 +85,17 @@ int main(int argc, char *argv[])
 	// DO NOT MODIFY
 	srand(42);
 	for (i = 0; i < N; i++)
-		v[i] = rand() % N;
+		v[i] = i;
+	// replace with v[i] = rand() % N; if we are willing to accept duplicates
+
+	for (i = 0; i < 5 * N; i++) {
+		int iA = rand() % N;
+		int iB = rand() % N;
+		int aux;
+		aux = v[iA];
+		v[iA] = v[iB];
+		v[iB] = aux;
+	}
 
 	// make copy to check it against qsort
 	// DO NOT MODIFY
