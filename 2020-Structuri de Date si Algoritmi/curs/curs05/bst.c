@@ -13,9 +13,11 @@ void printBinaryTree(binaryTreeNode* bTreeNode)
 {
 	if (bTreeNode == NULL)
 		return;
+	// printf("(");
 	printBinaryTree(bTreeNode->childLeft);
-	printf("%i ", bTreeNode->value);
+	printf("%i", bTreeNode->value);
 	printBinaryTree(bTreeNode->childRight);
+	// printf(")");
 }
 
 int bstSearch(binaryTreeNode* bstNode, int needle)
@@ -91,19 +93,19 @@ int main(int argc, char* argv[])
 	printBinaryTree(root); printf("\n");
 	root = bstRemove(root, 5);
 	printBinaryTree(root); printf("\n");
-    root = bstRemove(root, 1);
+	root = bstRemove(root, 1);
 	printBinaryTree(root); printf("\n");
-    root = bstRemove(root, 2);
+	root = bstRemove(root, 2);
 	printBinaryTree(root); printf("\n");
-    root = bstRemove(root, 4);
+	root = bstRemove(root, 4);
 	printBinaryTree(root); printf("\n");
-    root = bstRemove(root, 8);
+	root = bstRemove(root, 8);
 	printBinaryTree(root); printf("\n");
-    root = bstRemove(root, 9);
+	root = bstRemove(root, 9);
 	printBinaryTree(root); printf("\n");
-    root = bstInsertValue(root, 3);
-    printBinaryTree(root); printf("\n");
-    root = bstRemove(root, 3);
+	root = bstInsertValue(root, 3);
+	printBinaryTree(root); printf("\n");
+	root = bstRemove(root, 3);
 	printBinaryTree(root); printf("\n");
 	return 0;
 }
