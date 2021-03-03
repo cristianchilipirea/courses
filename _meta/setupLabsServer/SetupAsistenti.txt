@@ -3,7 +3,7 @@ Drepturi sudo prin WinScp
 	la SFTP Server se scrie de mana: sudo su -c /usr/lib/sftp-server
 
 Pentru sudo:
-	usermod -aG sudo username
+	usermod -aG sudo USERNAME
 
 	visudo
 	In the Sudoers file add NOPASSWD to this line:
