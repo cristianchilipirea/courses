@@ -1,0 +1,335 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{combelow}
+\usepackage{enumerate}
+\usepackage{amssymb,amsmath}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage{subcaption}
+\usepackage{tabulary}
+\usepackage{algorithm2e}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\headheight=33pt
+
+\linespread{1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancyplain}
+\fancyhf{}
+\lhead{\MNTitle} % Top left header
+%\chead{\MNTitleShort} % Top center head
+\rhead{\includegraphics[width=2cm]{sigla_ATM}} % Top right header
+\lfoot{\MNClass} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Pagina\ \thepage\ din\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+%----------------------------------------------------------------------------------------
+%	CODE INCLUSION CONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},		% choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\small\ttfamily,		% the size of the fonts that are used for the code
+  breakatwhitespace=false,			% sets if automatic breaks should only happen at whitespace
+  breaklines=true,					% sets automatic line breaking
+  captionpos=b,						% sets the caption-position to bottom
+  commentstyle=\color{mygreen},		% comment style
+  deletekeywords={...},				% if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},			% if you want to add LaTeX within your code
+  extendedchars=true,				% lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,						% adds a frame around the code
+  keepspaces=true,					% keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{black},			% keyword style
+  language=Octave,					% the language of the code
+  morekeywords={*,...},				% if you want to add more keywords to the set
+  numbers=left,						% where to put the line-numbers; possible values are (none, left, right)
+  numbersep=6pt,						% how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray},	% the style that is used for the line-numbers
+  rulecolor=\color{black},			% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,					% show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,			% underline spaces within strings only
+  showtabs=false,					% show tabs within strings adding particular underscores
+  stepnumber=1,						% the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},		% string literal style
+  tabsize=2,							% sets default tabsize to 2 spaces
+  title=\lstname						% show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+% Creates a new command to include a perl script, the first parameter is the filename of the script (without .pl), the second parameter is the caption
+\newcommand{\octavescript}[2]{
+\begin{itemize}
+\item[]\lstinputlisting[caption=#2,label=#1]{#1.m}
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{ProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\ProblemName}{}
+\newenvironment{Problem}[1][Sectiunea \arabic{ProblemCounter}]{ % Makes a new environment called Problem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{ProblemCounter} % Increase counter for number of problems
+\renewcommand{\ProblemName}{#1} % Assign \ProblemName the name of the problem
+\section{\ProblemName} % Make a section in the document with the custom problem count
+}{}
+
+\newcommand{\ProblemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\SectionName}{}
+\newenvironment{Section}[1]{ % New environment for sections within  problems, takes 1 argument - the name of the section
+\renewcommand{\SectionName}{#1} % Assign \SectionName to the name of the section from the environment argument
+\subsection{\SectionName} % Make a subsection with the custom name of the subsection
+}{}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\MNTitleShort}{Tema\ \#3} % Assignment title
+\newcommand{\MNTitle}{Tema\ \#1 Filtrarea imaginilor} % Assignment title
+\newcommand{\MNDueDate}{04-Apr-2021 23:55} % Due date
+\newcommand{\MNClass}{SISTEME TOLERANTE LA DEFECTE} % Course/class
+\newcommand{\MNClassTime}{} % Class/lecture time
+\newcommand{\MNClassInstructor}{Bureacă Emil} % Teacher/lecturer
+\newcommand{\MNAuthorName}{Bureacă Emil} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+%\vspace{2in}
+\textmd{\textbf{\MNClass \\ \MNTitle}}\\
+\normalsize\vspace{0.1in}\small{Termen de predare: \MNDueDate}\\
+}
+
+\author{Responsabil Temă: \textbf{\MNAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%    TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+%\newpage
+
+
+%----------------------------------------------------------------------------------------
+%    OBIECTIVELE TEMEI DE CASA
+%----------------------------------------------------------------------------------------
+\section{Obiective}
+
+Scopul acestei teme este de a implementa, în C, folosind biblioteca MPI, un sistem distribuit având ca scop filtrarea de imagini.
+
+%----------------------------------------------------------------------------------------
+%    PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+% To have just one problem per page, simply put a \clearpage after each problem
+
+\begin{Problem}[Date introductive]
+
+Obiectivul temei este de a crea un program MPI scalabil ce oferă funcționalitatea de aplicare a unor filtre asupra imaginilor. Filtrele reprezintă o componentă de bază în domeniul procesării imaginilor și ajută la sporirea anumitor caracteristici ale acestora. 
+
+În cazul acestei teme, vom aborda filtrarea liniară. Această operație constă în suprapunerea unei măști de filtrare peste fiecare pixel al imaginii originale, astfel încât centrul măștii să corespundă cu pixelul curent. Folosind masca se va calcula o nouă valoarea a pixelului. Noua valoare este egală cu suma tuturor produselor între coeficienții măștii și valorile pixelilor peste care se suprapun.
+
+Pentru a simplifica lucrurile, vom considera o mască de filtrare de formă pătrată, cu dimensiunea de 3x3.
+
+\begin{center}
+M = \begin{bmatrix}
+m_{-1,-1} & m_{-1, 0} & m_{-1, 1}\\\\
+m_{0, -1} & $\textbf{m_{0,0}}$ & m_{0, 1}\\\\
+m_{1, -1} & m_{1, 0} & m_{1, 1}
+\end{bmatrix}
+\end{center}
+
+
+
+\end{Problem}
+
+\begin{Problem}[Procesul de filtrare]
+
+Programul va primi ca input o imagine și va aplica unul sau mai multe filtre: \textbf{smooth}, \textbf{blur}, \textbf{sharpen}, \textbf{mean}, \textbf{emboss}.
+
+Deoarece filtrarea se aplică asupra pixelului și a vecinilor săi, apare cazul special al marginilor. Pixelii marginali nu au toți cei opt vecini. În practică, se adaugă un chenar imaginii format din pixeli de o anumită culoare, de exemplu alb sau negru în așa fel încât filtrarea să poată fi aplicată pe întreaga imagine. Totuși, pentru această temă, valoarile pixelilor marginilor vor rămâne nemodificate.
+
+În continuare, vom defini, prin intermediul măștilor de filtrare, următoarele filtre:\\
+
+1. \textbf{Filtrul smooth}
+
+\begin{center}
+    M = $\frac{1}{9} * $ \begin{bmatrix}
+    1 & 1 & 1\\
+    1 & 1 & 1\\
+    1 & 1 & 1
+    \end{bmatrix}
+\end{center}
+
+2. \textbf{Filtrul Gaussian blur}
+
+\begin{center}
+    M = $\frac{1}{16} * $ \begin{bmatrix}
+    1 & 2 & 1\\
+    2 & 4 & 2\\
+    1 & 2 & 1
+    \end{bmatrix}
+\end{center}
+
+3. \textbf{Filtrul sharpen}
+
+\begin{center}
+    M = $\frac{1}{3} * $ \begin{bmatrix}
+    0 & -2 & 0\\
+    -2 & 11 & -2\\
+    0 & -2 & 0
+    \end{bmatrix}
+\end{center}
+
+4. \textbf{Filtrul mean}
+
+\begin{center}
+    M = \begin{bmatrix}
+    -1 & -1 & -1\\
+    -1 & 9 & -1\\
+    -1 & -1 & -1
+    \end{bmatrix}
+\end{center}
+
+5. \textbf{Filtrul emboss}
+
+\begin{center}
+    M = \begin{bmatrix}
+    0 & 1 & 0\\
+    0 & 0 & 0\\
+    0 & -1 & 0
+    \end{bmatrix}
+\end{center}
+
+\end{Problem}
+
+\begin{Problem}[Observații]
+
+\begin{itemize}
+
+\item Programul poate primi imagini în format \textbf{.pnm} sau \textbf{.pgm}, iar formatul de fișierului de ieșire este același cu cel de intrare. 
+Pentru a converti imaginile de la un format la altul (e.g. .pgm to .jpg), puteti accesa \url{https://convertio.co/}. Alternativ puteți folosi linia de comanda folosind comanda \textbf{convert} din suita \textbf{imagemagick}.
+
+\item Deoarece comunicația este un factor de importanță majoră în cadrul sistemelor distribuite, această trebuie realizată într-un mod optim. Cât mai puține puține date transmise grupate în cât mai puține transmiteri.
+
+\item Aplicația va trebui să aplice cel puțin un filtru.
+
+\item Pot apărea diferențe la calcule. Folosiți tipul \textbf{float} pentru măștile de filtrare.
+
+\item Pixelii marginali vor ramâne constanți.
+
+\item Imaginile pot avea formatele \textbf{.pnm} sau \textbf{.pgm}.
+\\Formatul va fi de forma:
+
+\begin{lstlisting}
+P(5 sau 6)\n
+WIDTH HEIGHT\n
+MAXVAL (maxim 255)\n
+WIDTH * HEIGHT * NUM bytes reprezentand imaginea (*3 pentru color)
+\end{lstlisting}
+
+Unde, \textbf{P5} se referă la faptul că imaginea este în nuanțe de gri, iar \textbf{P6} indică o imagine coloră.
+
+\item Pentru imaginile în nuanțe de gri, fiecare pixel este reprezentat printr-o valoare din intervalul $[0, \textbf{MAXVAL}]$
+
+\item Pentru imaginile colore, fiecare pixel deține cate un byte pentru fiecare canal RGB. \textbf{Atenție}: aplicarea filtrării se va realiza separat pentru fiecare canal.
+
+\end{itemize}
+
+\end{Problem}
+
+\begin{Problem}[Rularea programului]
+
+Rularea programului se va realiza astfel:\\
+
+\begin{lstlisting}
+mpirun --oversubscribe -np NUM_PROCS ./homework IMG_IN IMG_OUT FILT1 FILT2 ... FILTK
+\end{lstlisting}
+
+
+Unde:
+
+\begin{itemize}
+    \item \textbf{NUM\textunderscore PROCS} - numărul de procese;
+    \item \textbf{IMG\textunderscore IN} - numele fișierului imaginii de intrare;
+    \item \textbf{OUT\textunderscore FILENAME} - numele fișierului imaginii rezultate în urma aplicării filtrelor;
+    \item \textbf{FILT1 FILT2 ... FILTK} - denumirile filtrelor \{ \textbf{smooth}, \textbf{blur}, \textbf{sharpen}, \textbf{mean}, \textbf{emboss} \}
+\end{itemize}
+
+Exemplu:
+\begin{lstlisting}
+mpirun --oversubscribe -np 2 ./homework tree.pnm tree_smooth.pnm smooth
+\end{lstlisting}
+
+\end{Problem}
+
+\begin{Problem}[Trimitere și punctare]
+
+    Distribuția punctajului este următoarea:
+\begin{itemize}
+    \item 30 puncte - Output corect program secvențial;
+    \item 70 puncte - Output corect program distribuit și scalabil.
+\end{itemize}
+
+Arhiva .zip trebuie să conțină fișierele ``homework.c''. O temă care nu compilează va primi 0 puncte. Tema va fi rulată și testată pentru corectitudine și scalabilitate pe un checker al ATM. Link-ul către acest checker va fi transmis ulterior.
+
+\textbf{Orice încercare de a abuza checker-ul va duce la un punctaj de 0 pe toate temele.}
+
+\end{Problem}
+
+\end{document}
