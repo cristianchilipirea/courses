@@ -8,8 +8,8 @@ int indexStack = 0;
 void push(int value)
 {
 	if (indexStack < 100) {
-		indexStack++;
 		stack[indexStack] = value;
+		indexStack++;
 	} else {
 		printf("Dimensiune stiva depasita!\n");
 	}
