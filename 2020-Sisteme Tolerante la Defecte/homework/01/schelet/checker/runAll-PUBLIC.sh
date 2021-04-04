@@ -1,7 +1,5 @@
 #!/bin/bash
 
-gcc -o compare -O3 compare.c
-
 maxRunTime=60
 minScalability=1.1
 points=2
@@ -92,7 +90,7 @@ function runProgram {
 
 	testResult="FAILED"
 	echo -n "Running $testName with $numThreads processes. "
-	programArgs="/tmp/input/$inputImage ./output/$fullTestName.$inputImageExtension $filters"
+	programArgs="./input/$inputImage ./output/$fullTestName.$inputImageExtension $filters"
 
 	/usr/bin/time --quiet -f "%e" -o execTime.$fullTestName timeout $maxRunTime mpirun -np $numThreads $program $programArgs &> /dev/null
 
@@ -105,7 +103,7 @@ function runProgram {
 	then
 		echo -e "\nERROR: Output file does not exist"
 	else
-	 	./compare /tmp/ref/$testName.$inputImageExtension ./output/$fullTestName.$inputImageExtension &> /dev/null
+	 	./compare ./ref/$testName.$inputImageExtension ./output/$fullTestName.$inputImageExtension &> /dev/null
 	 	if [ $? != 0 ]
 	 	then
 	 		echo -e "\nERROR: Output files differ"
