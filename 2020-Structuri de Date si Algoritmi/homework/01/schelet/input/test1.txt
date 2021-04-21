@@ -1,0 +1,15 @@
+5
+Ion_Pavel unknown unknown
+Ioana_Pavel unknown unknown
+Ana_Pavel Ion_Pavel Ioana_Pavel
+Cristian_Pavel Ion_Pavel Ioana_Pavel
+Gabriela_Pavel Ana_Pavel Cristian_Pavel
+8
+countSiblings ( Gabriela_Pavel )
+listSiblings ( Gabriela_Pavel )
+countCousins ( Gabriela_Pavel )
+listCousins ( Gabriela_Pavel )
+countParents ( Ioana_Pavel )
+listParents ( Ioana_Pavel )
+countGrandParents ( Ioana_Pavel )
+listGrandParents ( Ioana_Pavel )

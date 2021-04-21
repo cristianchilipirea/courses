@@ -1,0 +1,21 @@
+11
+Ion_Pavel unknown unknown
+Ioana_Pavel unknown unknown
+Alexandru_Petre unknown unknown
+Gheorghe_Popescu unknown unknown
+Angela_Popescu unknown unknown
+Ana_Pavel Ion_Pavel Ioana_Pavel
+Cristian_Pavel Ion_Pavel Ioana_Pavel
+Lavinia_Petre Alexandru_Petre unknown
+Bob_Popescu Gheorghe_Popescu Angela_Popescu
+David_Popescu Bob_Popescu Ana_Pavel
+Ionut_Pavel Cristian_Pavel Lavinia_Petre
+8
+countSiblings ( Cristian_Pavel )
+listSiblings ( Cristian_Pavel )
+countCousins ( David_Popescu )
+listCousins ( David_Popescu )
+countParents ( Cristian_Pavel )
+listParents ( Cristian_Pavel )
+countGrandParents ( Ionut_Pavel )
+listGrandParents ( Ionut_Pavel )
