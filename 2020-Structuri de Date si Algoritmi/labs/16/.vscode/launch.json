@@ -5,12 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
+            "name": "Launch1",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [
-                "10"
+                "10",
+                "2"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -31,7 +32,8 @@
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [
-                "20"
+                "10",
+                "2"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
