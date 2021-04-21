@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo $1 $2
-useradd -s /bin/bash -p $(openssl passwd -1 password) -d /home/$2/$1 -m $1
+useradd -m -s /bin/bash -d /home/$2/$1 $1
 ssh-keygen -f keys/$1 -N ""
 #sudo apt-get install putty
 puttygen keys/$1 -q -o keys/$1.ppk
