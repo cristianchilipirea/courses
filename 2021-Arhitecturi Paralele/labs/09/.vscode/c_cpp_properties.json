@@ -3,7 +3,7 @@
         {
             "name": "MinGW",
             "includePath": [
-                "${workspaceFolder}\\**",
+                "${workspaceFolder}/**",
                 "C:\\Program Files (x86)\\IntelSWTools\\system_studio_2020\\OpenCL\\**",
                 "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.4\\include\\**",
                 "C:\\Program Files\\msys2\\mingw64\\x86_64-w64-mingw32\\include\\**"
@@ -13,8 +13,6 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "windowsSdkVersion": "10.0.18362.0",
-            "compilerPath": "C:/Program Files/msys2/mingw64/bin/g++.exe",
             "cStandard": "gnu17",
             "cppStandard": "c++17",
             "intelliSenseMode": "linux-gcc-x64"

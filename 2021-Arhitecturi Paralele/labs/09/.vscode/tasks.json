@@ -9,6 +9,7 @@
 				"${file}",
 				"${fileDirname}\\_OpenCLUtil.h",
 				"${fileDirname}\\_OpenCLUtil.c",
+				"-std=c17",
 				"-o",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
 				"-L\"C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v11.4\\lib\\x64\"",
@@ -24,6 +25,7 @@
 				"${file}",
 				"${fileDirname}\\_OpenCLUtil.h",
 				"${fileDirname}\\_OpenCLUtil.c",
+				"-std=c17",
 				"-o",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
 				"-L\"C:\\Program Files (x86)\\IntelSWTools\\system_studio_2020\\OpenCL\\sdk\\lib\\x64\"",
@@ -38,6 +40,7 @@
 			"args": [
 				"${file}",
 				"${fileDirname}/_OpenCLUtil.c",
+				"-std=c17",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
 				"-framework",
@@ -47,7 +50,7 @@
 		{
 			"label": "RunShell",
 			"type": "shell",
-			"command": "./${fileBasenameNoExtension}"
+			"command": "${fileDirname}/${fileBasenameNoExtension}"
 		},
 		{
 			"label": "Build-MAC",

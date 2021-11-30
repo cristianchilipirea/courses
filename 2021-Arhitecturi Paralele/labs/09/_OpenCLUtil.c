@@ -81,8 +81,12 @@ char *opencl_errstr(cl_int err)
 char *readKernel(char *filename)
 {
 	FILE *fp = fopen(filename, "rt");
+	if (fp == NULL) {
+		printf("File %s with OpenCL Kernels  not found\n", filename);
+		exit(errno);
+	}
 	fseek(fp, 0, SEEK_END);
-	long size = ftell(fp);
+	int size = ftell(fp);
 	printf("DEBUG: File size of %s is %i\n", filename, size);
 	fseek(fp, 0, SEEK_SET);
 	char *fcontent = malloc(size + 1);
@@ -184,7 +188,7 @@ cl_device_id initOpenCL(cl_context *context, cl_command_queue *commandQueue)
 
 cl_kernel getAndCompileKernel(char *fileName, char *kernelName, cl_context context, cl_device_id deviceid)
 {
-	cl_uint ret;
+	cl_int ret;
 	char *KernelSource = readKernel(fileName);
 	cl_program program = clCreateProgramWithSource(context, 1, (const char **)&KernelSource, NULL, &ret);
 	handleError(ret, __LINE__, __FILE__);
@@ -196,7 +200,7 @@ cl_kernel getAndCompileKernel(char *fileName, char *kernelName, cl_context conte
 
 		printf("ERROR: Failed to build program executable %s from line %i in file %s", opencl_errstr(ret), __LINE__, __FILE__);
 		clGetProgramBuildInfo(program, deviceid, CL_PROGRAM_BUILD_LOG, sizeof(buffer), buffer, &len);
-		printf("%i\n", len);
+		printf("%i\n", (int)len);
 		for (int i = 0; i < len; i++)  // we print it char by chat because we had cases when the first few chars were \0
 			printf("%c", buffer[i]);
 		exit(1);

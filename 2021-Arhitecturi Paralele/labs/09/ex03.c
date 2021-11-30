@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 {
 	// Init data
 	unsigned int count = DATA_SIZE;
-	float data[count];
+	float data[DATA_SIZE];
 	for (int i = 0; i < count; i++)
 		data[i] = rand() / (float)RAND_MAX;
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	cl_context context;
 	cl_command_queue commandQueue;
 	cl_device_id deviceid = initOpenCL(&context, &commandQueue);
-	cl_kernel kernel = getAndCompileKernel("kernel.cl", "square", context, deviceid);
+	cl_kernel kernel = getAndCompileKernel("ex03.cl", "add10", context, deviceid);
 
 	// Allocate device memory
 	int ret;
@@ -47,7 +47,8 @@ int main(int argc, char **argv)
 	// Execute kernel
 	size_t work_group_size = max_work_group_size;
 	size_t total_work_size = count;
-	printf("Total work size is %i and work group size is %i. Total work size needs to be divisible by work group size.\n", total_work_size, work_group_size);
+	printf("Total work size is %i and work group size is %i. ", (int)total_work_size, (int)work_group_size);
+	printf("Total work size needs to be divisible by work group size.\n");
 	ret = clEnqueueNDRangeKernel(commandQueue, kernel, 1, NULL, &total_work_size, &work_group_size, 0, NULL, NULL);
 	handleError(ret, __LINE__, __FILE__);
 
