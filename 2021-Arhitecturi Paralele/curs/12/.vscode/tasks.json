@@ -1,0 +1,77 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: gcc build active file",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-lm",
+                "-fopenmp",
+                "-Wall"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: gcc no-debug-maxopt",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-O3",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-lm",
+                "-fopenmp",
+                "-Wall"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: MAC gcc no-debug-maxopt",
+            "command": "/opt/homebrew/Cellar/gcc/11.2.0_3/bin/gcc-11",
+            "args": [
+                "-O3",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-lm",
+                "-fopenmp",
+                "-Wall"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
