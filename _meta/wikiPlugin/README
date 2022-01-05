@@ -1,0 +1,3 @@
+This plugin is a modification for the iframe plugin for dokuwiki, developed by Christopher Smith <chris@jalakai.co.uk>. 
+It is meant to add a secret key in the iframe url, based on the wiki username.
+It is not meant for public used, but particular to our infrastructure, as such it is not published on the wiki plugins list.

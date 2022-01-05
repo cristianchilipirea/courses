@@ -1,0 +1,7 @@
+base   iframe2
+author Cristian Chilipirea
+email  cristian.chilipirea@gmail.com
+date   2020-10-04
+name   iframe2 plugin
+desc   Allows external URLs to be loaded into an iframe in your DokuWiki page. It also adds username and special hash to a link. This comes as an extension to Christopher Smith email  chris@jalakai.co.uk iframe plugin
+url    http://chilipirea.ro/
