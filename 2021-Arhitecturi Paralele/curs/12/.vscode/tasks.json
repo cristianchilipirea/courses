@@ -3,7 +3,7 @@
         {
             "type": "shell",
             "label": "C/C++: gcc build active file",
-            "command": "/usr/bin/gcc",
+            "command": "gcc",
             "args": [
                 "-g",
                 "${file}",
@@ -27,7 +27,7 @@
         {
             "type": "shell",
             "label": "C/C++: gcc no-debug-maxopt",
-            "command": "/usr/bin/gcc",
+            "command": "gcc",
             "args": [
                 "-O3",
                 "${file}",
