@@ -35,3 +35,4 @@ jobs:
           ssh -V
           kubectl
           curl https://chilipirea.ro
+          git --version
