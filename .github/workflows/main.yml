@@ -34,3 +34,4 @@ jobs:
           echo test, and deploy your project.
           ssh -V
           kubectl
+          curl https://chilipirea.ro
