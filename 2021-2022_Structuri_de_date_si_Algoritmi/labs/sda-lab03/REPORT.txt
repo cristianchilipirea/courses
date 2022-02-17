@@ -1,0 +1,11 @@
+EX 1 1_badFree.c: 
+
+Programul se termină cu Segmentation Fault.
+Se apelează free peste un pointer care nu a fost alocat.
+
+==1135== Invalid free() / delete / delete[] / realloc()
+==1135==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1135==    by 0x10916F: main (1_badFree.c:7)
+==1135==  Address 0x5 is not stack'd, malloc'd or (recently) free'd
+
+EX 2 
